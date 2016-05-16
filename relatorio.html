@@ -1,0 +1,32 @@
+<HTML>
+      <HEAD> 
+      <TITLE> Processamento Digital de Imagens - Segunda unidade</TITLE>
+      <b> <FONT SIZE=+3.5> Processamento Digital de Imagens - Segunda unidade </FONT> <p> <FONT SIZE=+1> Aluno: Tiago Batista Silva Sousa </b> </FONT>
+      </HEAD> 
+      <BODY>
+      <h2> Introdu&ccedil&atildeo </h2> 
+      Na segunda unidade da disciplina de Processamento Digital de Imagens foi requisitada a implementa&ccedil&atildeo de filtragem homom&oacuterfica e aplica&ccedil&atildeo de pontilhismo com detec&ccedil&atildeo de bordas de Canny. 
+      </BODY>
+      <h2> Desenvolvimento </h2>
+      Abaixo est&atildeo os algoritmos desenvolvidos para a segunda unidade da disciplina de PDI, ministrada pelo Prof. Agostinho Brito Jr.
+      <h3> Filtragem Homom&oacuterfica </h3>
+      <h4> Proposta: </h4>
+      O algoritmo proposto deve capturar imagens da c&acircmera e realizar a filtragem frequ&ecircncial homom&oacuterfica dos <i>frames</i> capturados em tempo real. O c&oacutedigo implementado pode ser acessado <A HREF="homo.cpp"> aqui</A>.
+      <h4> Implementa&ccedil&atildeo </h4>
+      As t&eacutecnicas de filtragem em frequ&ecircncia s&atildeo utilizadas para alterar padr&otildees da imagem que ocorrem em certas faixas de frequ&ecircncia. Esta an&aacutelise &eacute feita em geral atrav&eacutes da transformada discreta de Fourier. Essa transformada tem uma propriedade muito importante: a linearidade, ou seja, a transformada da soma de duas fun&ccedil&otildees &eacute igual &agrave soma das trasnformadas de cada uma das fun&ccedil&otildees separadamente, o que n&atildeo acontece para o produto. Nesse exerc&iacutecio, devemos separar a imagem capturada nas suas componentes de ilumin&acircncia(baixas frequ&ecircncias) e reflect&acircncia(altas frequ&ecircncias): i(x,y) e r(x,y). Para tomarmos proveito da propriedade de linearidade, devemos tomar o logar&iacutetmo da imagem(log(a*b) = log(a) + log(b)), e ent&atildeo aplicar a filtragem nesse logar&iacutetmo. Nota: &eacute importante somar 1 ao valor de todos os <i>p&iacutexels</i> da imagem, pois log(0) n&atildeo existe.
+      <h4> Resultado: </h4>
+      <center> <IMG SRC="filtragem_homomorifca.png"> </center>
+      <p>
+      <center> Figura 1: Exemplo de <i>frame</i> capturado original(&agrave direita) e processado(&agrave esquerda) pelo algoritmo <i>homo.cpp</i></center>
+      <h3> Pontilhismo </h3>
+      <h4> Proposta: </h4>
+      O algoritmo proposto abre uma imagem, converte-a para <i>grayscale</i> e ap&oacutes a aplica&ccedil&atildeo do algor&iacutetmo de Canny para detec&ccedil&atildeo de bordas, realiza o pontilhismo. O c&oacutedigo implementado pode ser acessado <A HREF="pont.cpp"> aqui</A>.
+      <h4> Desenvolvimento: </h4>
+      No programa <i>pont.cpp</i> foi utilizada a fun&ccedil&atildeo Canny(que implementa o algor&iacutetmo de Canny para a detec&ccedil&atildeo de bordas em uma imagens) para diferentes valores de v, que variam dentro do primeiro <i>for</i>. O segundo e terceiro <i>for</i> mapea a imagem por completo e testa se o ponto (x,y) atual est&aacute acima do limiar adotado(250). Nota: por padr&atildeo, o algoritmo de Canny retorna uma imagem com o fundo preto e as bordas da imagem de entrada branca. Para n&atildeo comparar com exatamente 255, adotaremos um limiar de 250.
+      <p>
+      Para a realiza&ccedil&atildeo do pontilhismo mais eficiente, a imagem de entrada &eacute introduzida como plano de fundo, e os <i>loops</i> v&atildeo superpondo os resultados ao fundo.
+      <p>
+      <center> <IMG SRC="lena.png"> <IMG SRC="output.png"> </center>
+      <center><p> Figura 2: &agrave esquerda temos a imagem original, &agrave direita a imagem ap&oacutes ser processada pelo algoritmo <p><center>
+
+</HTML>
